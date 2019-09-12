@@ -6,6 +6,7 @@
         <option v-for="(item, index) in nodeCategory" :key="index" :value="index">{{item}}</option>
       </select>
       <input type="text" v-model="newNodeLabel" placeholder="Input node label">
+      <input type="text" v-model="urldata" placeholder="image url">
       <button @click="addNode">ADD</button>
       <button @click="showdata">Show Data</button>
     </div>

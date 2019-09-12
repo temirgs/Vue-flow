@@ -1,11 +1,12 @@
 <template>
-  <g @mouseover="handleMouseOver"
-    @mouseleave="handleMouseLeave">
-    <text  font-size="30" text-anchor="middle">sdsdsds</text>
+  <g  @mouseover="handleMouseOver"
+    @mouseleave="handleMouseLeave" 
+    >
+    <text :transform="arrowTransform" font-size="15">true</text>
     <path :d="dAttr" :style="pathStyle"></path>
     <a v-if="show.delete" @click="deleteLink">
       <text 
-        text-anchor="middle" 
+        text-anchor="midlle" 
         :transform="arrowTransform"
         font-size="30">&times;</text>
     </a>
@@ -23,7 +24,7 @@ export default {
     start: {
       type: Array,
       default() {
-        return [0, 0]
+        return [0,0]
       }
     },
     // end point position [x, y]
@@ -61,7 +62,7 @@ export default {
       // caculate arrow rotation
       const angle = -Math.atan2(this.end[0] - this.start[0], this.end[1] - this.start[1]);
       const degree = angle * 180 / Math.PI;
-      return degree < 0 ? degree + 360 : degree;
+      return degree < 0 ? degree + 90: degree;//360
     },
     deleteLink() {
       this.$emit('deleteLink')
